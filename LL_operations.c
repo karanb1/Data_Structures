@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+int count = 0;
 struct node{
 	int data;
 	struct node *next;
@@ -18,6 +19,7 @@ void insertFront(int a)
 	else 
 		n -> next = start;
 	start = n;
+	count++;
 }
 void insertRear(int a)
 {
@@ -35,8 +37,18 @@ void insertRear(int a)
 		trv -> next = n;
 	}
 	n -> next = NULL;
+	count++;
 }
-void insertPos(int a, int pos);
+void insertPos(int a, int pos)
+{
+	struct node *n = (stuct node*)malloc(sizeof(struct node));
+	if(n == NULL)
+	{printf("Overflow!\n"), return;}
+	n -> data = a;
+	if(count - 1 < pos)
+	{printf("Invalid position!\n"), return;}
+	
+}
 void deleteFront()
 {
 	if(start == NULL)
@@ -47,6 +59,7 @@ void deleteFront()
 	else
 		start = trv;
 	free(temp);
+	count--;
 }
 void deleteRear()
 {
@@ -63,6 +76,7 @@ void deleteRear()
 		trv -> next = NULL;
 	}
 	free(temp);
+	count--;
 }
 void deletePos(int pos);
 void traverse()
