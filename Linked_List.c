@@ -39,16 +39,7 @@ void insertRear(int a)
 	n -> next = NULL;
 	count++;
 }
-void insertPos(int a, int pos)
-{
-	struct node *n = (stuct node*)malloc(sizeof(struct node));
-	if(n == NULL)
-	{printf("Overflow!\n"), return;}
-	n -> data = a;
-	if(count - 1 < pos)
-	{printf("Invalid position!\n"), return;}
-	
-}
+void insertPos(int a, int pos);
 void deleteFront()
 {
 	if(start == NULL)
@@ -93,8 +84,10 @@ void traverse()
 int main()
 {
 	int ch, a, pos;
-	printf("Linked List Operations: \n1.Insert at front\n2.Insert at rear\n3.Insert at a specified location\n");
-	printf("4.Delete at front\n5.Delete at rear\n6.Delete at specified location\n7.List\n8.Exit\n");
+	//printf("Linked List Operations: \n1.Insert at front\n2.Insert at rear\n3.Insert at a specified location\n");
+	//printf("4.Delete at front\n5.Delete at rear\n6.Delete at specified location\n7.List\n8.Exit\n");
+	printf("Linked List Operations: \n1.Insert at front\n2.Insert at rear\n");
+	printf("3.Delete at front\n4.Delete at rear\n5.List\n6.Exit\n");
 	do{
 		printf("Enter your choice: ");
 		scanf("%d", &ch);
@@ -111,18 +104,18 @@ int main()
 /*			case 3: printf("Enter element to insert and postion: ");
 					scanf("%d %d", &a, &pos);
 					insertPos(a, pos);
-					break;	*/
-			case 4:	deleteFront();
+					break;*/
+			case 3:	deleteFront();
 					break;
-			case 5:	deleteRear();
+			case 4:	deleteRear();
 					break;
 /*			case 6: printf("Enter positon of node: ");
 					scanf("%d", &pos);
 					deletePos(pos);
 					break;*/
-			case 7:	traverse();
+			case 5:	traverse();
 					break;
 		}
-	}while(ch != 8);
+	}while(ch != 6);
 	return 0;
 }
